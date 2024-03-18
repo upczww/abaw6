@@ -1,0 +1,32 @@
+Data:
+  train_data_root: "/data1/zww/abaw/VA_splits_w300_s200_fold_1/Train_Set"
+  val_data_root: "/data1/zww/abaw/VA_splits_w300_s200_fold_1/Validation_Set"
+  loader:
+    batch_size: 32
+    num_workers: 4
+    pin_memory: True
+    test_batch_size: 32
+
+Model:
+  model_name: Model
+  bin_num: 1
+  num_head: 4
+  num_layer: 8
+  kernel_size: 5
+  out_dim: 512
+  # pretrained_path: ./log/fold_4_all_features_head4_layer8_kernel5_dropout0.3_lr0.00003_tcn_40ep_adamW_win300_stride200/ckpt_epoch_7_iter_233.pt
+
+
+
+Log:
+  log_file_path: "./log/"
+  log_file_name: "fold1.log"
+
+Solver:
+  loss: ccc
+  epoch: 40
+  warmup: 2
+  lr: 0.00003
+  weight_decay: 0.00001
+  optimizer: AdamW
+  dropout: 0.0
